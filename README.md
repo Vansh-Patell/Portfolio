@@ -14,7 +14,7 @@ This repository contains the code for my personal portfolio, where I showcase my
 - Contact section with links to my LinkedIn, GitHub, and email
 - Experience section highlighting my academic and project-related achievements
 
-## Technologies Used
+## Languages Used
 
 - HTML
 - CSS
