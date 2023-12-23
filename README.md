@@ -1,5 +1,22 @@
-# Welcome to GitHub Desktop!
+# Vansh Patel's Portfolio
 
-This is your README. READMEs are where you can communicate what your project is and how to use it.
+Welcome to the GitHub repository for my personal portfolio!
 
-Write your name on line 6, save it, and then head back to GitHub Desktop.
+## Introduction
+
+This repository contains the code for my personal portfolio, where I showcase my projects, skills, and experiences. This will be updated regularly as I progress in my career.
+
+## Features
+
+- Responsive design for various screen sizes
+- Sections for education, projects, skills, and more
+- "About Me" section with a brief introduction
+- Contact section with links to my LinkedIn, GitHub, and email
+- Experience section highlighting my academic and project-related achievements
+
+## Technologies Used
+
+- HTML
+- CSS
+- JavaScript
+
