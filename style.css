@@ -5,11 +5,12 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #f0f8ff; /* Light Blue Color */
+  line-height: 1.6;
 }
 
 html {
@@ -17,7 +18,7 @@ html {
 }
 
 p {
-  color: rgb(85, 85, 85);
+  color: #555;
 }
 
 /* TRANSITION */
@@ -59,9 +60,11 @@ a:hover {
 
 .logo {
   font-size: 2rem;
+  transition: color 300ms ease;
 }
 
 .logo:hover {
+  color: grey;
   cursor: default;
 }
 
@@ -151,6 +154,8 @@ section {
 
 .section-container {
   display: flex;
+  gap: 7rem;
+  height: 80%;
 }
 
 /* PROFILE SECTION */
@@ -168,6 +173,7 @@ section {
   height: 400px;
   width: 400px;
   margin: auto 0;
+  transition: transform 300ms ease;
 }
 
 .section__text {
@@ -205,6 +211,10 @@ section {
   height: 2rem;
 }
 
+.icon:hover {
+  transform: scale(1.2);
+}
+
 /* BUTTONS */
 
 .btn-container {
@@ -219,6 +229,10 @@ section {
   padding: 1rem;
   width: 8rem;
   border-radius: 2rem;
+}
+
+.btn:hover::before {
+  left: 100%;
 }
 
 .btn-color-1,
