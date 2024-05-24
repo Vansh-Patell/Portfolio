@@ -383,10 +383,17 @@ article .icon {
   text-align: center;
 }
 
+.about-containers {
+  display: flex;
+  justify-content: space-around; /* Ensures the projects are spaced around evenly */
+  gap: 2rem; /* Optional: adds space between the projects */
+  flex-wrap: wrap; /* Allows wrapping to the next line on smaller screens */
+}
+
 .color-container {
   border-color: rgb(163, 163, 163);
   background: rgb(250, 250, 250);
-  width: 50%; /* Adjust the container width as needed */
+  width: 45%; /* Adjust the container width as needed */
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
@@ -407,6 +414,11 @@ article .icon {
   color: black;
   border-color: rgb(163, 163, 163);
   margin-top: 1rem;
+}
+
+/* Ensure proper alignment of the arrow icon */
+.arrow {
+  margin-top: 2rem;
 }
 
 /* CONTACT SECTION */
