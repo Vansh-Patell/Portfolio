@@ -92,7 +92,7 @@ export default function About() {
                         <span className="text-gray-300">.</span>
                         <span className="text-red-300">{line.split('.')[1]?.split(' ')[0]}</span>
                         <span className="text-gray-300"> = </span>
-                        <span className="text-green-300">'{line.split("'")[1]}'</span>
+                        <span className="text-green-300">&apos;{line.split("'")[1]}&apos;</span>
                         <span className="text-gray-300">;</span>
                       </>
                     )}
@@ -108,14 +108,14 @@ export default function About() {
                         <span className="text-gray-300"> [</span>
                       </>
                     )}
-                    {line.includes('return \'') && (
+                    {line.includes("return '") && (
                       <>
                         <span className="text-purple-400">{'\t\t'}return</span>
-                        <span className="text-green-300"> '{line.split("'")[1]}'</span>
+                        <span className="text-green-300"> &apos;{line.split("'")[1]}&apos;</span>
                         <span className="text-gray-300">;</span>
                       </>
                     )}
-                    {line.includes("'") && !line.includes('this.') && !line.includes('return \'') && (
+                    {line.includes("'") && !line.includes('this.') && !line.includes("return '") && (
                       <span className="text-green-300">{'\t\t\t'}{line.trim()}</span>
                     )}
                     {line === '\t\t];' && (
