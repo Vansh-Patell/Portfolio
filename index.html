@@ -43,7 +43,7 @@
       <div class="section__text">
         <p class="section__text__p1">Hello, I'm</p>
         <h1 class="title">Vansh Patel</h1>
-        <p class="section__text__p2">Junior Developer in Training</p>
+        <p class="section__text__p2">Full Stack Developer</p>
         <div clas="btn-container">
           <button
             class="btn btn-color-2"
@@ -292,45 +292,111 @@
     </section>
     <section id="projects" class="fade-section">
       <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
+      <h1 class="title">Featured Projects</h1>
+      <p class="projects-subtitle">A showcase of my development journey and technical expertise</p>
       <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/Budgetmanager.png"
-                alt="Project 1"
-                class="project-img"
-              />
+        <div class="projects-grid">
+          <!-- Featured Project -->
+          <div class="project-card featured-project">
+            <div class="project-image-container">
+              <div class="project-placeholder">
+                <div class="project-icon">🎵</div>
+              </div>
+              <div class="project-overlay">
+                <span class="project-category">Java Application</span>
+              </div>
             </div>
-            <h2 class="experience-sub-title project-title">
-              Basic Budget Manager
-            </h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href = 'https://github.com/bprosen/Hackathon2023'"
-              >
-                Github
-              </button>
+            <div class="project-content">
+              <h3 class="project-title">Harmonix</h3>
+              <p class="project-description">A sophisticated music application built with Java, featuring audio playback, playlist management, and an intuitive user interface.</p>
+              <div class="project-tech">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Swing</span>
+                <span class="tech-tag">Audio Processing</span>
+              </div>
+              <div class="project-links">
+                <button class="btn btn-primary" onclick="window.open('https://github.com/Vansh-Patell/Harmonix', '_blank')">
+                  <span>GitHub</span>
+                </button>
+              </div>
             </div>
           </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/music_app.png"
-                alt="Project 2"
-                class="project-img"
-              />
+
+          <!-- Match Pro Project -->
+          <div class="project-card">
+            <div class="project-image-container">
+              <div class="project-placeholder">
+                <div class="project-icon">⚽</div>
+              </div>
+              <div class="project-overlay">
+                <span class="project-category">JavaScript App</span>
+              </div>
             </div>
-            <h2 class="experience-sub-title project-title">Music app</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href = 'https://github.com/Vansh-Patell/Harmonix'"
-              >
-                Github
-              </button>
+            <div class="project-content">
+              <h3 class="project-title">Match Pro</h3>
+              <p class="project-description">A professional match management system for sports, built with modern JavaScript and featuring real-time updates.</p>
+              <div class="project-tech">
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+              </div>
+              <div class="project-links">
+                <button class="btn btn-secondary" onclick="window.open('https://github.com/Vansh-Patell/match-pro', '_blank')">
+                  <span>GitHub</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- NASA ExoSky Project -->
+          <div class="project-card">
+            <div class="project-image-container">
+              <div class="project-placeholder">
+                <div class="project-icon">🚀</div>
+              </div>
+              <div class="project-overlay">
+                <span class="project-category">Web Application</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">NASA ExoSky</h3>
+              <p class="project-description">An interactive web application exploring exoplanets and space data, featuring NASA API integration and stunning visualizations.</p>
+              <div class="project-tech">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">NASA API</span>
+              </div>
+              <div class="project-links">
+                <button class="btn btn-secondary" onclick="window.open('https://github.com/Vansh-Patell/NASA_exosky', '_blank')">
+                  <span>GitHub</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Voice Recognition Software -->
+          <div class="project-card">
+            <div class="project-image-container">
+              <div class="project-placeholder">
+                <div class="project-icon">🎤</div>
+              </div>
+              <div class="project-overlay">
+                <span class="project-category">Python Application</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Voice Recognition Software</h3>
+              <p class="project-description">Python-based voice recognition software enabling speech-to-text conversion and voice command capabilities.</p>
+              <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Speech Recognition</span>
+                <span class="tech-tag">NLP</span>
+              </div>
+              <div class="project-links">
+                <button class="btn btn-secondary" onclick="window.open('https://github.com/Vansh-Patell/Voice-Recognition-Software', '_blank')">
+                  <span>GitHub</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
