@@ -8,7 +8,7 @@ import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white custom-scrollbar">
+    <div className="min-h-screen bg-black text-white custom-scrollbar font-sans">
       <Navigation />
       <main>
         <Hero />

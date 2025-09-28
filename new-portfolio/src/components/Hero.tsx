@@ -1,17 +1,25 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { CodeTypewriter } from './Typewriter'
 
 export default function Hero() {
+  const [showDescription, setShowDescription] = useState(false)
+
   const scrollToNext = () => {
     const aboutSection = document.getElementById('about')
     aboutSection?.scrollIntoView({ behavior: 'smooth' })
   }
 
+  const handleTypewriterComplete = () => {
+    setTimeout(() => setShowDescription(true), 300)
+  }
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-20">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900/20 via-black to-gray-900/20" />
       
@@ -32,39 +40,45 @@ export default function Hero() {
         <div className="absolute top-1/6 left-2/3 w-1 h-1 bg-white/10 rounded-full animate-twinkle" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col justify-center min-h-[calc(100vh-10rem)]">
         <div className="text-center">
-          {/* Main Title - Tailwind CSS Style */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-8 leading-tight tracking-tight"
-          >
-            Vansh Patel{' '}
-            <span className="block text-gray-400 font-normal">
-              Software Developer
-            </span>
-          </motion.h1>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed"
-          >
-            I craft exceptional digital experiences with modern web technologies. 
-            Passionate about creating scalable applications and beautiful user interfaces 
-            that make a difference.
-          </motion.p>
-
-          {/* CTA Buttons */}
+          {/* Main Title with Code Typewriter */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.0 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-8"
+          >
+            <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight tracking-tight font-heading">
+              Vansh Patel
+            </h1>
+            <div className="mt-8 mb-8 text-2xl md:text-4xl lg:text-5xl">
+              <CodeTypewriter delay={500} onComplete={handleTypewriterComplete} />
+            </div>
+          </motion.div>
+
+          {/* Description */}
+          {showDescription && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="max-w-4xl mx-auto mb-12 mt-8"
+            >
+              <p className="text-lg md:text-xl text-gray-400 leading-relaxed font-sans mb-6">
+                I try to create good digital experiences for users with modern technologies. 
+                Passionate about building scalable applications that make a difference.
+              </p>
+            </motion.div>
+          )}
+
+          {/* CTA Buttons */}
+          {showDescription && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
           >
             <Button
               size="lg"
@@ -81,14 +95,16 @@ export default function Hero() {
             >
               Get In Touch
             </Button>
-          </motion.div>
+            </motion.div>
+          )}
 
           {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
-            className="flex justify-center space-x-6 mb-16"
+          {showDescription && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="flex justify-center space-x-6 mb-16"
           >
             <motion.a
               href="https://github.com/Vansh-Patell"
@@ -118,17 +134,19 @@ export default function Hero() {
             >
               <Mail size={24} />
             </motion.a>
-          </motion.div>
+            </motion.div>
+          )}
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.4 }}
-        onClick={scrollToNext}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-400 hover:text-white transition-colors duration-300"
+      {showDescription && (
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
+          onClick={scrollToNext}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-400 hover:text-white transition-colors duration-300"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
@@ -136,7 +154,8 @@ export default function Hero() {
         >
           <ArrowDown size={24} />
         </motion.div>
-      </motion.button>
+        </motion.button>
+      )}
     </section>
   )
 }

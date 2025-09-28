@@ -77,7 +77,7 @@ export default function TechStack() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 font-heading">
             Powered by the best.
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">

@@ -10,25 +10,25 @@ export default function About() {
 
   const codeLines = [
     "class VanshPatel {",
-    "  constructor() {",
-    "    this.name = 'Vansh Patel';",
-    "    this.role = 'Software Developer';",
-    "    this.location = 'Winnipeg, Canada';",
-    "    this.education = 'B.Sc. Computer Science';",
-    "    this.university = 'University of Manitoba';",
-    "  }",
+    "\tconstructor() {",
+    "\t\tthis.name = 'Vansh Patel';",
+    "\t\tthis.role = 'Software Developer';",
+    "\t\tthis.location = 'Winnipeg, Canada';",
+    "\t\tthis.education = 'B.Sc. Computer Science';",
+    "\t\tthis.university = 'University of Manitoba';",
+    "\t}",
     "",
-    "  getSkills() {",
-    "    return [",
-    "      'Java', 'Python', 'JavaScript', 'TypeScript',",
-    "      'React', 'Node.js', 'Spring Boot', 'Azure',",
-    "      'AWS', 'Docker', 'MongoDB', 'SQL'",
-    "    ];",
-    "  }",
+    "\tgetSkills() {",
+    "\t\treturn [",
+    "\t\t\t'Java', 'Python', 'JavaScript', 'TypeScript',",
+    "\t\t\t'React', 'Node.js', 'Spring Boot', 'Azure',",
+    "\t\t\t'AWS', 'Docker', 'MongoDB', 'SQL'",
+    "\t\t];",
+    "\t}",
     "",
-    "  getCurrentFocus() {",
-    "    return 'Full-stack development & Cloud computing';",
-    "  }",
+    "\tgetCurrentFocus() {",
+    "\t\treturn 'Full-stack development & Cloud computing';",
+    "\t}",
     "}"
   ]
 
@@ -66,7 +66,7 @@ export default function About() {
             </div>
 
             {/* Code Content */}
-            <div className="bg-gray-900 rounded-b-lg p-6 font-mono text-sm overflow-hidden" style={{ minHeight: '400px' }}>
+            <div className="bg-gray-900 rounded-b-lg p-6 font-mono text-sm overflow-hidden" style={{ minHeight: '400px', tabSize: 4, whiteSpace: 'pre' }}>
               {codeLines.map((line, index) => (
                 <motion.div
                   key={index}
@@ -88,13 +88,13 @@ export default function About() {
                     )}
                     {line.includes('constructor') && (
                       <>
-                        <span className="text-blue-400">  constructor</span>
+                        <span className="text-blue-400">{'\t'}constructor</span>
                         <span className="text-gray-300">() {'{'}</span>
                       </>
                     )}
                     {line.includes('this.') && (
                       <>
-                        <span className="text-blue-300">    this</span>
+                        <span className="text-blue-300">{'\t\t'}this</span>
                         <span className="text-gray-300">.</span>
                         <span className="text-red-300">{line.split('.')[1]?.split(' ')[0]}</span>
                         <span className="text-gray-300"> = </span>
@@ -104,37 +104,37 @@ export default function About() {
                     )}
                     {line.includes('getSkills') && (
                       <>
-                        <span className="text-blue-400">  getSkills</span>
+                        <span className="text-blue-400">{'\t'}getSkills</span>
                         <span className="text-gray-300">() {'{'}</span>
                       </>
                     )}
                     {line.includes('getCurrentFocus') && (
                       <>
-                        <span className="text-blue-400">  getCurrentFocus</span>
+                        <span className="text-blue-400">{'\t'}getCurrentFocus</span>
                         <span className="text-gray-300">() {'{'}</span>
                       </>
                     )}
                     {line.includes('return [') && (
                       <>
-                        <span className="text-purple-400">    return</span>
+                        <span className="text-purple-400">{'\t\t'}return</span>
                         <span className="text-gray-300"> [</span>
                       </>
                     )}
                     {line.includes('return \'') && (
                       <>
-                        <span className="text-purple-400">    return</span>
+                        <span className="text-purple-400">{'\t\t'}return</span>
                         <span className="text-green-300"> '{line.split("'")[1]}'</span>
                         <span className="text-gray-300">;</span>
                       </>
                     )}
                     {line.includes("'JavaScript'") && (
-                      <span className="text-green-300">      {line.trim()}</span>
+                      <span className="text-green-300">{'\t\t\t'}{line.trim()}</span>
                     )}
-                    {line === '    ];' && (
-                      <span className="text-gray-300">    ];</span>
+                    {line === '\t\t];' && (
+                      <span className="text-gray-300">{'\t\t'}];</span>
                     )}
-                    {line === '  }' && (
-                      <span className="text-gray-300">  {'}'}</span>
+                    {line === '\t}' && (
+                      <span className="text-gray-300">{'\t}'}</span>
                     )}
                     {line === '}' && (
                       <span className="text-gray-300">{'}'}</span>
@@ -179,11 +179,11 @@ export default function About() {
 
             {/* Introduction Text */}
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">
+              <h2 className="text-3xl md:text-4xl font-bold text-white font-heading">
                 About Me
               </h2>
               
-              <div className="space-y-4 text-gray-300 leading-relaxed">
+              <div className="space-y-4 text-gray-300 leading-relaxed font-sans">
                 <p className="text-lg">
                   I'm a Computer Science student at the University of Manitoba with a 3.5 GPA 
                   and multiple Dean's Honour List achievements. I specialize in full-stack 
@@ -200,18 +200,6 @@ export default function About() {
                   Currently focused on cybersecurity, distributed systems, and creating 
                   innovative solutions that make a real impact in the tech industry.
                 </p>
-              </div>
-
-              {/* Quick Stats */}
-              <div className="grid grid-cols-2 gap-6 pt-6">
-                <div className="text-center p-4 bg-gray-900/50 rounded-lg border border-gray-800">
-                  <div className="text-2xl font-bold text-blue-400">50+</div>
-                  <div className="text-gray-400">Projects</div>
-                </div>
-                <div className="text-center p-4 bg-gray-900/50 rounded-lg border border-gray-800">
-                  <div className="text-2xl font-bold text-green-400">4+</div>
-                  <div className="text-gray-400">Years</div>
-                </div>
               </div>
             </div>
           </motion.div>

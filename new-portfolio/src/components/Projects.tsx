@@ -10,7 +10,7 @@ const projects = [
   {
     title: 'Match-Pro',
     description: 'AI-Powered Resume Analysis Platform built with React.js, Node.js, and Firebase authentication. Integrated OpenAI GPT-3.5 API for ATS compatibility scores and personalized suggestions, with secure AWS S3 file upload and automated CI/CD pipeline.',
-    image: '/api/placeholder/600/400',
+    image: '/1.png',
     technologies: [],
     github: 'https://github.com/Vansh-Patell/match-pro',
     live: null,
@@ -19,7 +19,7 @@ const projects = [
   {
     title: 'ExoSky',
     description: '3D Exoplanet Explorer built with Three.js, integrating NASA exoplanet records via APIs. Features Node.js backend with Express and MongoDB, optimized for high traffic with Azure deployment and CI/CD pipeline.',
-    image: '/api/placeholder/600/400',
+    image: '/2.png',
     technologies: [],
     github: 'https://github.com/Vansh-Patell/NASA_exosky',
     live: null,
@@ -28,7 +28,7 @@ const projects = [
   {
     title: 'Harmonix',
     description: 'Android Music App designed as a native Android music player in Java with playlist persistence using SQLite. Features offline mode, background playback, and responsive UI with 90% unit test coverage using JUnit and Mockito.',
-    image: '/api/placeholder/600/400',
+    image: '/3.png',
     technologies: [],
     github: 'https://github.com/Vansh-Patell/harmonix',
     live: null,
@@ -59,7 +59,7 @@ const itemVariants = {
 
 export default function Projects() {
   const featuredProjects = projects.filter(project => project.featured)
-  const otherProjects = projects.filter(project => !project.featured)
+
 
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
@@ -72,10 +72,10 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6 font-heading">
             Featured Projects
           </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto font-sans">
             A showcase of my recent work, featuring projects that demonstrate 
             my skills in full-stack development, UI/UX design, and problem-solving.
           </p>
@@ -93,75 +93,97 @@ export default function Projects() {
             <motion.div
               key={project.title}
               variants={itemVariants}
-              className={`grid lg:grid-cols-2 gap-8 items-center ${
+              className={`group grid lg:grid-cols-2 gap-8 items-center ${
                 index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
               }`}
             >
               {/* Project Image */}
-              <div className={`relative group ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                <div className="aspect-video bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-gray-700 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                        <ExternalLink className="w-8 h-8 text-gray-400" />
-                      </div>
-                      <p className="text-gray-400">Project Screenshot</p>
+              <div className={`relative ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+                {/* Glow effect background */}
+                <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-blue-500/30 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+                
+                {/* Image container with enhanced styling */}
+                <div className="relative aspect-video bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800/50 overflow-hidden group-hover:border-gray-700/50 transition-all duration-300 shadow-2xl">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} screenshot`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  
+                  {/* Subtle overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60"></div>
+                  
+                  {/* Enhanced hover overlay */}
+                  <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl flex items-center justify-center">
+                    <div className="flex space-x-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      <Button
+                        size="sm"
+                        className="bg-white text-black hover:bg-gray-100 shadow-lg border border-white/20 backdrop-blur-sm"
+                        onClick={() => window.open(project.github, '_blank')}
+                      >
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </Button>
+                      {project.live && (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          className="border-white/50 text-white hover:bg-white/10 hover:border-white backdrop-blur-sm shadow-lg"
+                          onClick={() => project.live && window.open(project.live, '_blank')}
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Live
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </div>
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl flex items-center justify-center">
-                  <div className="flex space-x-4">
-                    <Button
-                      size="sm"
-                      className="bg-white text-black hover:bg-gray-200"
-                      onClick={() => window.open(project.github, '_blank')}
-                    >
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </Button>
-                    {project.live && (
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="border-white text-white hover:bg-white hover:text-black"
-                        onClick={() => project.live && window.open(project.live, '_blank')}
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Live
-                      </Button>
-                    )}
-                  </div>
-                </div>
+                
+                {/* Corner accent */}
+                <div className="absolute top-4 right-4 w-2 h-2 bg-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg shadow-blue-500/50"></div>
               </div>
 
               {/* Project Details */}
-              <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                <div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-1' : ''} group-hover:transform group-hover:translate-x-1 transition-transform duration-300`}>
+                {/* Project title with accent line */}
+                <div className="relative">
+                  <div className="absolute -left-4 top-3 w-1 h-8 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-heading group-hover:text-blue-100 transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-gray-400 leading-relaxed">
-                    {project.description}
-                  </p>
+                  
+                  {/* Enhanced description box */}
+                  <div className="relative p-6 bg-gray-900/30 backdrop-blur-sm rounded-lg border border-gray-800/50 group-hover:border-gray-700/50 group-hover:bg-gray-900/50 transition-all duration-300">
+                    <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300 font-sans">
+                      {project.description}
+                    </p>
+                    
+                    {/* Corner decoration */}
+                    <div className="absolute top-2 right-2 w-1 h-1 bg-blue-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
-                    <Badge
-                      key={tech}
-                      variant="secondary"
-                      className="bg-gray-800 text-gray-300 hover:bg-gray-700"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
+                {/* Technology badges (hidden since technologies array is empty, but keeping for future) */}
+                {project.technologies.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech) => (
+                      <Badge
+                        key={tech}
+                        variant="secondary"
+                        className="bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 border border-gray-700/50 backdrop-blur-sm"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
 
+                {/* Enhanced action buttons */}
                 <div className="flex space-x-4">
                   <Button
                     variant="outline"
                     size="sm"
-                    className="border-gray-600 text-gray-300 hover:bg-white/10"
+                    className="border-gray-600/50 text-gray-300 hover:bg-white/5 hover:border-gray-500 hover:text-white backdrop-blur-sm transition-all duration-300 shadow-lg"
                     onClick={() => window.open(project.github, '_blank')}
                   >
                     <Github className="w-4 h-4 mr-2" />
@@ -170,7 +192,7 @@ export default function Projects() {
                   {project.live && (
                     <Button
                       size="sm"
-                      className="bg-white text-black hover:bg-gray-200"
+                      className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
                       onClick={() => project.live && window.open(project.live, '_blank')}
                     >
                       <ExternalLink className="w-4 h-4 mr-2" />
@@ -183,88 +205,7 @@ export default function Projects() {
           ))}
         </motion.div>
 
-        {/* Other Projects Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-12">
-            Other Projects
-          </h3>
-        </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {otherProjects.map((project) => (
-            <motion.div key={project.title} variants={itemVariants}>
-              <Card className="bg-gray-900/50 border-gray-800 hover:bg-gray-900/70 transition-all duration-300 group hover:shadow-xl hover:shadow-white/5 h-full">
-                <CardContent className="p-6 flex flex-col h-full">
-                  <div className="flex items-center justify-between mb-4">
-                    <h4 className="text-lg font-semibold text-white group-hover:text-gray-300">
-                      {project.title}
-                    </h4>
-                    <div className="flex space-x-2">
-                      <motion.a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="text-gray-400 hover:text-white transition-colors"
-                      >
-                        <Github size={18} />
-                      </motion.a>
-                      {project.live && (
-                        <motion.a
-                          href={project.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                          className="text-gray-400 hover:text-white transition-colors"
-                        >
-                          <ExternalLink size={18} />
-                        </motion.a>
-                      )}
-                    </div>
-                  </div>
-
-                  <p className="text-gray-400 text-sm mb-4 flex-grow">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-1">
-                    {project.technologies.slice(0, 3).map((tech) => (
-                      <Badge
-                        key={tech}
-                        variant="secondary"
-                        className="bg-gray-800 text-gray-300 text-xs"
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <Badge
-                        variant="secondary"
-                        className="bg-gray-800 text-gray-300 text-xs"
-                      >
-                        +{project.technologies.length - 3}
-                      </Badge>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   )

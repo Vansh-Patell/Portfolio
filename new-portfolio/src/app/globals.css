@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -35,9 +37,21 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .font-heading, .font-heading * {
+    font-family: var(--font-space-grotesk), 'Space Grotesk', system-ui, sans-serif !important;
+  }
+
+  .font-sans, .font-sans * {
+    font-family: var(--font-inter), 'Inter', system-ui, sans-serif !important;
+  }
+
+  .font-mono, .font-mono * {
+    font-family: var(--font-jetbrains-mono), 'JetBrains Mono', monospace !important;
   }
 
   html {
