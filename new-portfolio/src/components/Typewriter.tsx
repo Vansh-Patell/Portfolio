@@ -1,5 +1,4 @@
 'use client'
-
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
@@ -11,12 +10,12 @@ interface TypewriterProps {
   onComplete?: () => void
 }
 
-export const Typewriter = ({ 
-  text, 
-  delay = 0, 
-  speed = 50, 
+export const Typewriter = ({
+  text,
+  delay = 0,
+  speed = 50,
   showCursor = true,
-  onComplete 
+  onComplete
 }: TypewriterProps) => {
   const [displayText, setDisplayText] = useState('')
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -27,8 +26,7 @@ export const Typewriter = ({
       const timeout = setTimeout(() => {
         setDisplayText(prev => prev + text[currentIndex])
         setCurrentIndex(prev => prev + 1)
-      }, delay + speed)
-
+      }, currentIndex === 0 ? delay + speed : speed) // Only apply delay to first character
       return () => clearTimeout(timeout)
     } else if (!isComplete) {
       setIsComplete(true)
@@ -42,10 +40,10 @@ export const Typewriter = ({
       {showCursor && (
         <motion.span
           animate={{ opacity: [1, 0, 1] }}
-          transition={{ 
-            duration: 1, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
+          transition={{
+            duration: 1,
+            repeat: Infinity,
+            ease: "easeInOut"
           }}
           className="inline-block ml-1 w-0.5 h-6 bg-gray-400"
         />
@@ -85,10 +83,10 @@ export const CodeTypewriter = ({ delay = 0, onComplete }: CodeTypewriterProps) =
     <span className="font-mono text-gray-400 tracking-wider">
       {stage >= 0 && (
         <span className="text-blue-400">
-          <Typewriter 
-            text={stages[0]} 
+          <Typewriter
+            text={stages[0]}
             delay={delay}
-            speed={40}
+            speed={60}
             showCursor={stage === 0}
             onComplete={stage === 0 ? handleStageComplete : undefined}
           />
@@ -96,10 +94,10 @@ export const CodeTypewriter = ({ delay = 0, onComplete }: CodeTypewriterProps) =
       )}
       {stage >= 1 && (
         <span className="text-cyan-300">
-          <Typewriter 
-            text={stages[1]} 
+          <Typewriter
+            text={stages[1]}
             delay={0}
-            speed={40}
+            speed={60}
             showCursor={stage === 1}
             onComplete={stage === 1 ? handleStageComplete : undefined}
           />
@@ -107,10 +105,10 @@ export const CodeTypewriter = ({ delay = 0, onComplete }: CodeTypewriterProps) =
       )}
       {stage >= 2 && (
         <span className="text-slate-300">
-          <Typewriter 
-            text={stages[2]} 
+          <Typewriter
+            text={stages[2]}
             delay={0}
-            speed={40}
+            speed={60}
             showCursor={stage === 2}
             onComplete={stage === 2 ? handleStageComplete : undefined}
           />
@@ -118,10 +116,10 @@ export const CodeTypewriter = ({ delay = 0, onComplete }: CodeTypewriterProps) =
       )}
       {stage >= 3 && (
         <span className="text-gray-400">
-          <Typewriter 
-            text={stages[3]} 
+          <Typewriter
+            text={stages[3]}
             delay={0}
-            speed={40}
+            speed={60}
             showCursor={stage === 3}
             onComplete={stage === 3 ? handleStageComplete : undefined}
           />
@@ -129,10 +127,10 @@ export const CodeTypewriter = ({ delay = 0, onComplete }: CodeTypewriterProps) =
       )}
       {stage >= 4 && (
         <span className="text-slate-300">
-          <Typewriter 
-            text={stages[4]} 
+          <Typewriter
+            text={stages[4]}
             delay={0}
-            speed={40}
+            speed={60}
             showCursor={stage === 4}
             onComplete={stage === 4 ? handleStageComplete : undefined}
           />
@@ -140,10 +138,10 @@ export const CodeTypewriter = ({ delay = 0, onComplete }: CodeTypewriterProps) =
       )}
       {stage >= 5 && (
         <span className="text-cyan-300">
-          <Typewriter 
-            text={stages[5]} 
+          <Typewriter
+            text={stages[5]}
             delay={0}
-            speed={40}
+            speed={60}
             showCursor={true}
             onComplete={stage === 5 ? handleStageComplete : undefined}
           />

@@ -13,21 +13,15 @@ export default function About() {
     "\tconstructor() {",
     "\t\tthis.name = 'Vansh Patel';",
     "\t\tthis.role = 'Software Developer';",
-    "\t\tthis.location = 'Winnipeg, Canada';",
-    "\t\tthis.education = 'B.Sc. Computer Science';",
+    "\t\tthis.location = 'Canada';",
     "\t\tthis.university = 'University of Manitoba';",
     "\t}",
     "",
-    "\tgetSkills() {",
+    "\tgetLearningMindset() {",
     "\t\treturn [",
-    "\t\t\t'Java', 'Python', 'JavaScript', 'TypeScript',",
-    "\t\t\t'React', 'Node.js', 'Spring Boot', 'Azure',",
-    "\t\t\t'AWS', 'Docker', 'MongoDB', 'SQL'",
+    "\t\t\t'Always eager to learn and ",
+    "\t\t\t'adapt to new challenges'",
     "\t\t];",
-    "\t}",
-    "",
-    "\tgetCurrentFocus() {",
-    "\t\treturn 'Full-stack development & Cloud computing';",
     "\t}",
     "}"
   ]
@@ -66,7 +60,7 @@ export default function About() {
             </div>
 
             {/* Code Content */}
-            <div className="bg-gray-900 rounded-b-lg p-6 font-mono text-sm overflow-hidden" style={{ minHeight: '400px', tabSize: 4, whiteSpace: 'pre' }}>
+            <div className="bg-gray-900 rounded-b-lg p-6 font-mono text-sm overflow-hidden" style={{ minHeight: '500px', tabSize: 4, whiteSpace: 'pre' }}>
               {codeLines.map((line, index) => (
                 <motion.div
                   key={index}
@@ -102,15 +96,9 @@ export default function About() {
                         <span className="text-gray-300">;</span>
                       </>
                     )}
-                    {line.includes('getSkills') && (
+                    {(line.includes('getLanguages') || line.includes('getFrameworks') || line.includes('getCloudTools') || line.includes('getExperience') || line.includes('getLearningMindset')) && (
                       <>
-                        <span className="text-blue-400">{'\t'}getSkills</span>
-                        <span className="text-gray-300">() {'{'}</span>
-                      </>
-                    )}
-                    {line.includes('getCurrentFocus') && (
-                      <>
-                        <span className="text-blue-400">{'\t'}getCurrentFocus</span>
+                        <span className="text-blue-400">{'\t'}{line.trim().split('(')[0]}</span>
                         <span className="text-gray-300">() {'{'}</span>
                       </>
                     )}
@@ -127,7 +115,7 @@ export default function About() {
                         <span className="text-gray-300">;</span>
                       </>
                     )}
-                    {line.includes("'JavaScript'") && (
+                    {line.includes("'") && !line.includes('this.') && !line.includes('return \'') && (
                       <span className="text-green-300">{'\t\t\t'}{line.trim()}</span>
                     )}
                     {line === '\t\t];' && (
@@ -185,20 +173,20 @@ export default function About() {
               
               <div className="space-y-4 text-gray-300 leading-relaxed font-sans">
                 <p className="text-lg">
-                  I'm a Computer Science student at the University of Manitoba with a 3.5 GPA 
-                  and multiple Dean's Honour List achievements. I specialize in full-stack 
-                  development, cloud computing, and building scalable applications.
+                  I'm a Computer Science graduate from the University of Manitoba who loves 
+                  solving tricky problems with code. Give me a challenge that needs both 
+                  technical skills and creative thinking, and I'm all in.
                 </p>
                 
                 <p className="text-lg">
-                  My experience includes developing AI-powered applications, 3D visualizations 
-                  with NASA data, and mobile apps. I've worked with technologies ranging from 
-                  Java and Python to React and cloud platforms like Azure and AWS.
+                  My approach is simple: understand what needs to be built, then build it 
+                  right. I enjoy working across the entire spectrum - from making websites 
+                  look great to setting up the systems that power them, and even building 
+                  simple automation tools that handle boring repetitive tasks.
                 </p>
 
                 <p className="text-lg">
-                  Currently focused on cybersecurity, distributed systems, and creating 
-                  innovative solutions that make a real impact in the tech industry.
+                  When I'm not staring at code, I'm either working out, enjoying nature, reading philosophical texts, or spending time with friends.
                 </p>
               </div>
             </div>
