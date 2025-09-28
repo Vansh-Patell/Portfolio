@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export default function TechStack() {
   const technologies = [
@@ -128,10 +129,12 @@ export default function TechStack() {
               <div className="relative p-6 bg-gray-900/50 hover:bg-gray-900/70 transition-all duration-300 min-h-[140px] flex flex-col items-center justify-center">
                 {/* Logo/Icon */}
                 <div className="mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <img 
+                  <Image 
                     src={tech.iconUrl} 
                     alt={`${tech.name} logo`}
-                    className="w-8 h-8 filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300"
+                    width={32}
+                    height={32}
+                    className="filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300"
                     style={{ filter: 'brightness(0) invert(1)' }}
                   />
                 </div>

@@ -173,9 +173,9 @@ export default function About() {
               
               <div className="space-y-4 text-gray-300 leading-relaxed font-sans">
                 <p className="text-lg">
-                  I'm a Computer Science graduate from the University of Manitoba who loves 
+                  I&apos;m a Computer Science graduate from the University of Manitoba who loves 
                   solving tricky problems with code. Give me a challenge that needs both 
-                  technical skills and creative thinking, and I'm all in.
+                  technical skills and creative thinking, and I&apos;m all in.
                 </p>
                 
                 <p className="text-lg">
@@ -186,7 +186,7 @@ export default function About() {
                 </p>
 
                 <p className="text-lg">
-                  When I'm not staring at code, I'm either working out, enjoying nature, reading philosophical texts, or spending time with friends.
+                  When I&apos;m not staring at code, I&apos;m either working out, enjoying nature, reading philosophical texts, or spending time with friends.
                 </p>
               </div>
             </div>

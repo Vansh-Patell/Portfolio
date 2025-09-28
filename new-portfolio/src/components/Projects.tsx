@@ -2,9 +2,9 @@
 
 import { motion } from 'framer-motion'
 import { ExternalLink, Github } from 'lucide-react'
-import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 
 const projects = [
   {
@@ -104,10 +104,11 @@ export default function Projects() {
                 
                 {/* Image container with enhanced styling */}
                 <div className="relative aspect-video bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800/50 overflow-hidden group-hover:border-gray-700/50 transition-all duration-300 shadow-2xl">
-                  <img
+                  <Image
                     src={project.image}
                     alt={`${project.title} screenshot`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   
                   {/* Subtle overlay gradient */}
