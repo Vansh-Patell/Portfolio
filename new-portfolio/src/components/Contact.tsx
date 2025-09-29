@@ -69,7 +69,7 @@ export default function Contact() {
     {
       icon: <MapPin className="w-5 h-5" />,
       label: 'Location',
-      value: 'Winnipeg, Canada',
+      value: 'Canada',
       href: null
     }
   ]

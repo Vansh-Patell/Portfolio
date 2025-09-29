@@ -17,7 +17,7 @@ export default function Footer() {
         >
           <div className="flex items-center justify-center mb-4">  
             <span className="text-gray-400">
-              Built using Next.js, TypeScript & Tailwind CSS
+              Built using Next.js, React, TypeScript, Tailwind CSS, Framer Motion, Shadcn/ui and Resend.
             </span>
           </div>
           

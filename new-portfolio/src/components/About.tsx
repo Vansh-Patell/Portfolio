@@ -20,7 +20,7 @@ export default function About() {
     "\tgetLearningMindset() {",
     "\t\treturn [",
     "\t\t\t'Always eager to learn and ",
-    "\t\t\t'adapt to new challenges'",
+    "\t\t\t adapt to new challenges'",
     "\t\t];",
     "\t}",
     "}"
